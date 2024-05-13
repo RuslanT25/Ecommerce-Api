@@ -7,15 +7,15 @@
       "RelativeMoniker": "D:0:0:{B4695382-9876-46B5-B585-B096E129EC69}|Core\\Ecommerce.Domain\\Ecommerce.Domain.csproj|solutionrelative:core\\ecommerce.domain\\common\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B4695382-9876-46B5-B585-B096E129EC69}|Core\\Ecommerce.Domain\\Ecommerce.Domain.csproj|d:\\onion\\ecommerce\\core\\ecommerce.domain\\common\\entities\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B4695382-9876-46B5-B585-B096E129EC69}|Core\\Ecommerce.Domain\\Ecommerce.Domain.csproj|D:\\Onion\\Ecommerce\\core\\ecommerce.domain\\common\\entities\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B4695382-9876-46B5-B585-B096E129EC69}|Core\\Ecommerce.Domain\\Ecommerce.Domain.csproj|solutionrelative:core\\ecommerce.domain\\common\\entities\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B4695382-9876-46B5-B585-B096E129EC69}|Core\\Ecommerce.Domain\\Ecommerce.Domain.csproj|d:\\onion\\ecommerce\\core\\ecommerce.domain\\common\\entities\\detail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B4695382-9876-46B5-B585-B096E129EC69}|Core\\Ecommerce.Domain\\Ecommerce.Domain.csproj|D:\\Onion\\Ecommerce\\core\\ecommerce.domain\\common\\entities\\detail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B4695382-9876-46B5-B585-B096E129EC69}|Core\\Ecommerce.Domain\\Ecommerce.Domain.csproj|solutionrelative:core\\ecommerce.domain\\common\\entities\\detail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B4695382-9876-46B5-B585-B096E129EC69}|Core\\Ecommerce.Domain\\Ecommerce.Domain.csproj|d:\\onion\\ecommerce\\core\\ecommerce.domain\\common\\entities\\brand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B4695382-9876-46B5-B585-B096E129EC69}|Core\\Ecommerce.Domain\\Ecommerce.Domain.csproj|D:\\Onion\\Ecommerce\\core\\ecommerce.domain\\common\\entities\\brand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B4695382-9876-46B5-B585-B096E129EC69}|Core\\Ecommerce.Domain\\Ecommerce.Domain.csproj|solutionrelative:core\\ecommerce.domain\\common\\entities\\brand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -52,7 +52,7 @@
               "RelativeDocumentMoniker": "Core\\Ecommerce.Domain\\Common\\Entities\\Product.cs",
               "ToolTip": "D:\\Onion\\Ecommerce\\Core\\Ecommerce.Domain\\Common\\Entities\\Product.cs",
               "RelativeToolTip": "Core\\Ecommerce.Domain\\Common\\Entities\\Product.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAJAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAA4AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-13T15:18:21.634Z",
               "EditorCaption": ""
@@ -67,8 +67,7 @@
               "RelativeToolTip": "Core\\Ecommerce.Domain\\Common\\Entities\\Detail.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-13T15:14:25.363Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-13T15:14:25.363Z"
             },
             {
               "$type": "Document",
@@ -80,8 +79,7 @@
               "RelativeToolTip": "Core\\Ecommerce.Domain\\Common\\Entities\\Brand.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-13T15:09:42.139Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-13T15:09:42.139Z"
             },
             {
               "$type": "Document",
@@ -93,8 +91,7 @@
               "RelativeToolTip": "Core\\Ecommerce.Domain\\Common\\Entities\\Category.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAuwBoAAAA6AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-13T15:01:41.582Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-13T15:01:41.582Z"
             }
           ]
         },
