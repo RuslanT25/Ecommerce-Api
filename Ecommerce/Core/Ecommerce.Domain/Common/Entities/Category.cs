@@ -13,11 +13,11 @@ namespace Ecommerce.Domain.Common.Entities
 
         }
 
-        public Category(int parentId, string name, int priority)
+        public Category(string name, int priority, int parentId)
         {
-            ParentId = parentId;
             Name = name;
             Priority = priority;
+            ParentId = parentId;
         }
 
         public required int ParentId { get; set; }
