@@ -4,4 +4,34 @@
 # Ignore obj directory
 **/obj/
 
+# Ignore .vs folder that contains the Visual Studio project settings
 .vs/
+
+# Ignore user-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Mono Auto Generated Files
+mono_crash.*
+
+# Auto-generated files
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.opendb
+*.VC.db
+
+# Visual Studio Code
+.vscode/
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
