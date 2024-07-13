@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Ecommerce.Domain.Common;
 
-namespace Ecommerce.Application.Interfaces.Repositories
+namespace Ecommerce.Application.Interfaces.Repositories;
+
+public interface IWriteRepository<T> where T : class, IEntityBase, new()
 {
-    public interface IWriteRepository
-    {
-    }
+    Task AddAsync(T entity);
+    Task AddRange(IList<T> entities);
+    Task<T> UpdateAsync(T entity);
+    Task HardDeleteAsync(T entity);
 }

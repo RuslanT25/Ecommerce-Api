@@ -19,8 +19,9 @@ namespace Ecommerce.Persistence
             services.AddDbContext<EcommerceDbContext>(opt =>
             opt.UseSqlServer(configuration.GetConnectionString("SqlCon")));
 
-            services.AddScoped(typeof(IReadRepository<>), typeof(IReadRepository<>));
-            
+            services.AddScoped(typeof(IReadRepository<>), typeof(ReadRepository<>));
+            services.AddScoped(typeof(IWriteRepository<>), typeof(WriteRepository<>));
+
         }
     }
 }
