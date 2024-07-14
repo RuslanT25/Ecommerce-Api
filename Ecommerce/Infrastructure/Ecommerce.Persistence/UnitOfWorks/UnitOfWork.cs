@@ -17,6 +17,6 @@ public class UnitOfWork(EcommerceDbContext context) : IUnitOfWork
 
     IReadRepository<T> IUnitOfWork.GetReadRepository<T>() => new ReadRepository<T>(_context);
 
-    IWriteRepository<T> IUnitOfWork.GetWriteRepository<T>() => new WriteRepository<T>(_context
+    IWriteRepository<T> IUnitOfWork.GetWriteRepository<T>() => new WriteRepository<T>(_context);
 }
 
