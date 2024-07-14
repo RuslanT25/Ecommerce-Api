@@ -1,3 +1,4 @@
+﻿using Ecommerce.Application.Features.Products.Queries;
 using Ecommerce.Persistence;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
@@ -17,8 +18,12 @@ public class Program
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
         builder.Services.AddPersistance(builder.Configuration);
-        builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 
+        // MediatR'ı ekle ve iki assembly'yi tara
+        builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(
+            Assembly.GetExecutingAssembly(), // Şu an çalışmakta olan assembly
+            typeof(GetAllProductsQueryHandler).Assembly // GetAllProductsQueryHandler türünün bulunduğu assembly
+        ));
 
         var app = builder.Build();
 
