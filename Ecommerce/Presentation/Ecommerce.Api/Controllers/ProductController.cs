@@ -1,4 +1,6 @@
 ﻿using Ecommerce.Application.Features.Products.Commands.Add;
+using Ecommerce.Application.Features.Products.Commands.Delete;
+using Ecommerce.Application.Features.Products.Commands.Update;
 using Ecommerce.Application.Features.Products.Queries.GetAll;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -28,5 +30,19 @@ public class ProductController : ControllerBase
     {
         var product = await _mediator.Send(request);
         return Ok(product);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> UpdateProduct(UpdateProductCommandRequest request)
+    {
+        await _mediator.Send(request);
+        return NoContent();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> DeleteProduct(DeleteProductCommandRequest request)
+    {
+        await _mediator.Send(request);
+        return NoContent();
     }
 }
