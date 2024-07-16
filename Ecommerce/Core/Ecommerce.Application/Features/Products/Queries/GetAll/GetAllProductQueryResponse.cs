@@ -1,6 +1,6 @@
 ﻿using Ecommerce.Application.DTOs;
 
-namespace Ecommerce.Application.Features.Products.Queries;
+namespace Ecommerce.Application.Features.Products.Queries.GetAll;
 
 public class GetAllProductsQueryResponse
 {
@@ -9,4 +9,5 @@ public class GetAllProductsQueryResponse
     public double Price { get; set; }
     public double Discount { get; set; }
     public BrandDTO Brand { get; set; }
+    public List<CategoryDTO> Category { get; set; }
 }

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Ecommerce.Persistence.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -94,24 +94,24 @@ namespace Ecommerce.Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "CategoryProduct",
+                name: "ProductCategories",
                 columns: table => new
                 {
-                    CategoriesId = table.Column<int>(type: "int", nullable: false),
-                    ProductsId = table.Column<int>(type: "int", nullable: false)
+                    ProductId = table.Column<int>(type: "int", nullable: false),
+                    CategoryId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CategoryProduct", x => new { x.CategoriesId, x.ProductsId });
+                    table.PrimaryKey("PK_ProductCategories", x => new { x.ProductId, x.CategoryId });
                     table.ForeignKey(
-                        name: "FK_CategoryProduct_Categories_CategoriesId",
-                        column: x => x.CategoriesId,
+                        name: "FK_ProductCategories_Categories_CategoryId",
+                        column: x => x.CategoryId,
                         principalTable: "Categories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_CategoryProduct_Products_ProductsId",
-                        column: x => x.ProductsId,
+                        name: "FK_ProductCategories_Products_ProductId",
+                        column: x => x.ProductId,
                         principalTable: "Products",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -122,9 +122,9 @@ namespace Ecommerce.Persistence.Migrations
                 columns: new[] { "Id", "CreatedDate", "IsDeleted", "Name" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2024, 5, 23, 20, 3, 32, 200, DateTimeKind.Local).AddTicks(551), false, "Grocery" },
-                    { 2, new DateTime(2024, 5, 23, 20, 3, 32, 200, DateTimeKind.Local).AddTicks(568), false, "Kids" },
-                    { 3, new DateTime(2024, 5, 23, 20, 3, 32, 200, DateTimeKind.Local).AddTicks(623), true, "Games & Computers" }
+                    { 1, new DateTime(2024, 7, 14, 19, 57, 16, 117, DateTimeKind.Local).AddTicks(8136), false, "Tools" },
+                    { 2, new DateTime(2024, 7, 14, 19, 57, 16, 117, DateTimeKind.Local).AddTicks(8149), false, "Movies" },
+                    { 3, new DateTime(2024, 7, 14, 19, 57, 16, 117, DateTimeKind.Local).AddTicks(8159), true, "Baby" }
                 });
 
             migrationBuilder.InsertData(
@@ -132,10 +132,10 @@ namespace Ecommerce.Persistence.Migrations
                 columns: new[] { "Id", "CreatedDate", "IsDeleted", "Name", "ParentId", "Priority" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2024, 5, 23, 20, 3, 32, 200, DateTimeKind.Local).AddTicks(3778), false, "Electronic", 0, 1 },
-                    { 2, new DateTime(2024, 5, 23, 20, 3, 32, 200, DateTimeKind.Local).AddTicks(3781), false, "Fashion", 0, 2 },
-                    { 3, new DateTime(2024, 5, 23, 20, 3, 32, 200, DateTimeKind.Local).AddTicks(3783), false, "Computer", 1, 1 },
-                    { 4, new DateTime(2024, 5, 23, 20, 3, 32, 200, DateTimeKind.Local).AddTicks(3784), false, "Woman", 2, 1 }
+                    { 1, new DateTime(2024, 7, 14, 19, 57, 16, 118, DateTimeKind.Local).AddTicks(1737), false, "Electronic", 0, 1 },
+                    { 2, new DateTime(2024, 7, 14, 19, 57, 16, 118, DateTimeKind.Local).AddTicks(1740), false, "Fashion", 0, 2 },
+                    { 3, new DateTime(2024, 7, 14, 19, 57, 16, 118, DateTimeKind.Local).AddTicks(1743), false, "Computer", 1, 1 },
+                    { 4, new DateTime(2024, 7, 14, 19, 57, 16, 118, DateTimeKind.Local).AddTicks(1745), false, "Woman", 2, 1 }
                 });
 
             migrationBuilder.InsertData(
@@ -143,9 +143,9 @@ namespace Ecommerce.Persistence.Migrations
                 columns: new[] { "Id", "CategoryId", "CreatedDate", "Description", "IsDeleted", "Title" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(2024, 5, 23, 20, 3, 32, 206, DateTimeKind.Local).AddTicks(1614), "İllo consequuntur eum assumenda nesciunt.", false, "İllo." },
-                    { 2, 3, new DateTime(2024, 5, 23, 20, 3, 32, 206, DateTimeKind.Local).AddTicks(1765), "Sunt recusandae assumenda doloremque nisi.", true, "Consequatur et." },
-                    { 3, 4, new DateTime(2024, 5, 23, 20, 3, 32, 206, DateTimeKind.Local).AddTicks(1825), "Eos eligendi maiores id eum.", false, "Ab." }
+                    { 1, 1, new DateTime(2024, 7, 14, 19, 57, 16, 123, DateTimeKind.Local).AddTicks(307), "Distinctio neque eum officiis recusandae.", false, "Culpa." },
+                    { 2, 3, new DateTime(2024, 7, 14, 19, 57, 16, 123, DateTimeKind.Local).AddTicks(366), "At cumque et neque iste.", true, "Et minus." },
+                    { 3, 4, new DateTime(2024, 7, 14, 19, 57, 16, 123, DateTimeKind.Local).AddTicks(413), "Et laboriosam in alias ut.", false, "Adipisci." }
                 });
 
             migrationBuilder.InsertData(
@@ -153,18 +153,18 @@ namespace Ecommerce.Persistence.Migrations
                 columns: new[] { "Id", "BrandId", "CreatedDate", "Description", "Discount", "IsDeleted", "Price", "Title" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(2024, 5, 23, 20, 3, 32, 212, DateTimeKind.Local).AddTicks(3858), "The Football Is Good For Training And Recreational Purposes", 7.7501253055940511, false, 294.13, "Rustic Plastic Chicken" },
-                    { 2, 3, new DateTime(2024, 5, 23, 20, 3, 32, 212, DateTimeKind.Local).AddTicks(3890), "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit", 3.7274968482741242, false, 919.63, "Sleek Wooden Keyboard" }
+                    { 1, 1, new DateTime(2024, 7, 14, 19, 57, 16, 128, DateTimeKind.Local).AddTicks(5286), "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit", 4.5670111905320221, false, 471.97000000000003, "Ergonomic Soft Shoes" },
+                    { 2, 3, new DateTime(2024, 7, 14, 19, 57, 16, 128, DateTimeKind.Local).AddTicks(5319), "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive", 6.1705422891358497, false, 189.63999999999999, "Sleek Steel Soap" }
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_CategoryProduct_ProductsId",
-                table: "CategoryProduct",
-                column: "ProductsId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Details_CategoryId",
                 table: "Details",
+                column: "CategoryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ProductCategories_CategoryId",
+                table: "ProductCategories",
                 column: "CategoryId");
 
             migrationBuilder.CreateIndex(
@@ -177,16 +177,16 @@ namespace Ecommerce.Persistence.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "CategoryProduct");
-
-            migrationBuilder.DropTable(
                 name: "Details");
 
             migrationBuilder.DropTable(
-                name: "Products");
+                name: "ProductCategories");
 
             migrationBuilder.DropTable(
                 name: "Categories");
+
+            migrationBuilder.DropTable(
+                name: "Products");
 
             migrationBuilder.DropTable(
                 name: "Brands");

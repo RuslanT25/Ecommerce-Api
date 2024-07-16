@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Ecommerce.Persistence.Migrations
 {
     [DbContext(typeof(EcommerceDbContext))]
-    [Migration("20240523160335_init")]
-    partial class init
+    [Migration("20240714155718_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,21 +24,6 @@ namespace Ecommerce.Persistence.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("CategoryProduct", b =>
-                {
-                    b.Property<int>("CategoriesId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductsId")
-                        .HasColumnType("int");
-
-                    b.HasKey("CategoriesId", "ProductsId");
-
-                    b.HasIndex("ProductsId");
-
-                    b.ToTable("CategoryProduct");
-                });
 
             modelBuilder.Entity("Ecommerce.Domain.Common.Entities.Brand", b =>
                 {
@@ -67,23 +52,23 @@ namespace Ecommerce.Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2024, 5, 23, 20, 3, 32, 200, DateTimeKind.Local).AddTicks(551),
+                            CreatedDate = new DateTime(2024, 7, 14, 19, 57, 16, 117, DateTimeKind.Local).AddTicks(8136),
                             IsDeleted = false,
-                            Name = "Grocery"
+                            Name = "Tools"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2024, 5, 23, 20, 3, 32, 200, DateTimeKind.Local).AddTicks(568),
+                            CreatedDate = new DateTime(2024, 7, 14, 19, 57, 16, 117, DateTimeKind.Local).AddTicks(8149),
                             IsDeleted = false,
-                            Name = "Kids"
+                            Name = "Movies"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2024, 5, 23, 20, 3, 32, 200, DateTimeKind.Local).AddTicks(623),
+                            CreatedDate = new DateTime(2024, 7, 14, 19, 57, 16, 117, DateTimeKind.Local).AddTicks(8159),
                             IsDeleted = true,
-                            Name = "Games & Computers"
+                            Name = "Baby"
                         });
                 });
 
@@ -119,7 +104,7 @@ namespace Ecommerce.Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2024, 5, 23, 20, 3, 32, 200, DateTimeKind.Local).AddTicks(3778),
+                            CreatedDate = new DateTime(2024, 7, 14, 19, 57, 16, 118, DateTimeKind.Local).AddTicks(1737),
                             IsDeleted = false,
                             Name = "Electronic",
                             ParentId = 0,
@@ -128,7 +113,7 @@ namespace Ecommerce.Persistence.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2024, 5, 23, 20, 3, 32, 200, DateTimeKind.Local).AddTicks(3781),
+                            CreatedDate = new DateTime(2024, 7, 14, 19, 57, 16, 118, DateTimeKind.Local).AddTicks(1740),
                             IsDeleted = false,
                             Name = "Fashion",
                             ParentId = 0,
@@ -137,7 +122,7 @@ namespace Ecommerce.Persistence.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2024, 5, 23, 20, 3, 32, 200, DateTimeKind.Local).AddTicks(3783),
+                            CreatedDate = new DateTime(2024, 7, 14, 19, 57, 16, 118, DateTimeKind.Local).AddTicks(1743),
                             IsDeleted = false,
                             Name = "Computer",
                             ParentId = 1,
@@ -146,7 +131,7 @@ namespace Ecommerce.Persistence.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2024, 5, 23, 20, 3, 32, 200, DateTimeKind.Local).AddTicks(3784),
+                            CreatedDate = new DateTime(2024, 7, 14, 19, 57, 16, 118, DateTimeKind.Local).AddTicks(1745),
                             IsDeleted = false,
                             Name = "Woman",
                             ParentId = 2,
@@ -190,28 +175,28 @@ namespace Ecommerce.Persistence.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2024, 5, 23, 20, 3, 32, 206, DateTimeKind.Local).AddTicks(1614),
-                            Description = "İllo consequuntur eum assumenda nesciunt.",
+                            CreatedDate = new DateTime(2024, 7, 14, 19, 57, 16, 123, DateTimeKind.Local).AddTicks(307),
+                            Description = "Distinctio neque eum officiis recusandae.",
                             IsDeleted = false,
-                            Title = "İllo."
+                            Title = "Culpa."
                         },
                         new
                         {
                             Id = 2,
                             CategoryId = 3,
-                            CreatedDate = new DateTime(2024, 5, 23, 20, 3, 32, 206, DateTimeKind.Local).AddTicks(1765),
-                            Description = "Sunt recusandae assumenda doloremque nisi.",
+                            CreatedDate = new DateTime(2024, 7, 14, 19, 57, 16, 123, DateTimeKind.Local).AddTicks(366),
+                            Description = "At cumque et neque iste.",
                             IsDeleted = true,
-                            Title = "Consequatur et."
+                            Title = "Et minus."
                         },
                         new
                         {
                             Id = 3,
                             CategoryId = 4,
-                            CreatedDate = new DateTime(2024, 5, 23, 20, 3, 32, 206, DateTimeKind.Local).AddTicks(1825),
-                            Description = "Eos eligendi maiores id eum.",
+                            CreatedDate = new DateTime(2024, 7, 14, 19, 57, 16, 123, DateTimeKind.Local).AddTicks(413),
+                            Description = "Et laboriosam in alias ut.",
                             IsDeleted = false,
-                            Title = "Ab."
+                            Title = "Adipisci."
                         });
                 });
 
@@ -257,39 +242,39 @@ namespace Ecommerce.Persistence.Migrations
                         {
                             Id = 1,
                             BrandId = 1,
-                            CreatedDate = new DateTime(2024, 5, 23, 20, 3, 32, 212, DateTimeKind.Local).AddTicks(3858),
-                            Description = "The Football Is Good For Training And Recreational Purposes",
-                            Discount = 7.7501253055940511,
+                            CreatedDate = new DateTime(2024, 7, 14, 19, 57, 16, 128, DateTimeKind.Local).AddTicks(5286),
+                            Description = "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
+                            Discount = 4.5670111905320221,
                             IsDeleted = false,
-                            Price = 294.13,
-                            Title = "Rustic Plastic Chicken"
+                            Price = 471.97000000000003,
+                            Title = "Ergonomic Soft Shoes"
                         },
                         new
                         {
                             Id = 2,
                             BrandId = 3,
-                            CreatedDate = new DateTime(2024, 5, 23, 20, 3, 32, 212, DateTimeKind.Local).AddTicks(3890),
-                            Description = "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
-                            Discount = 3.7274968482741242,
+                            CreatedDate = new DateTime(2024, 7, 14, 19, 57, 16, 128, DateTimeKind.Local).AddTicks(5319),
+                            Description = "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
+                            Discount = 6.1705422891358497,
                             IsDeleted = false,
-                            Price = 919.63,
-                            Title = "Sleek Wooden Keyboard"
+                            Price = 189.63999999999999,
+                            Title = "Sleek Steel Soap"
                         });
                 });
 
-            modelBuilder.Entity("CategoryProduct", b =>
+            modelBuilder.Entity("Ecommerce.Domain.Common.Entities.ProductCategory", b =>
                 {
-                    b.HasOne("Ecommerce.Domain.Common.Entities.Category", null)
-                        .WithMany()
-                        .HasForeignKey("CategoriesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
 
-                    b.HasOne("Ecommerce.Domain.Common.Entities.Product", null)
-                        .WithMany()
-                        .HasForeignKey("ProductsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ProductId", "CategoryId");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("ProductCategories");
                 });
 
             modelBuilder.Entity("Ecommerce.Domain.Common.Entities.Detail", b =>
@@ -314,9 +299,35 @@ namespace Ecommerce.Persistence.Migrations
                     b.Navigation("Brand");
                 });
 
+            modelBuilder.Entity("Ecommerce.Domain.Common.Entities.ProductCategory", b =>
+                {
+                    b.HasOne("Ecommerce.Domain.Common.Entities.Category", "Category")
+                        .WithMany("ProductCategories")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Ecommerce.Domain.Common.Entities.Product", "Product")
+                        .WithMany("ProductCategories")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("Ecommerce.Domain.Common.Entities.Category", b =>
                 {
                     b.Navigation("Details");
+
+                    b.Navigation("ProductCategories");
+                });
+
+            modelBuilder.Entity("Ecommerce.Domain.Common.Entities.Product", b =>
+                {
+                    b.Navigation("ProductCategories");
                 });
 #pragma warning restore 612, 618
         }

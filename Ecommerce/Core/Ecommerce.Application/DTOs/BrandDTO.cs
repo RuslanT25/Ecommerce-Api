@@ -2,5 +2,7 @@
 
 namespace Ecommerce.Application.DTOs;
 
-public record BrandDTO(
-    string Name);
+public class BrandDTO
+{
+    public string Name { get; set; }
+}

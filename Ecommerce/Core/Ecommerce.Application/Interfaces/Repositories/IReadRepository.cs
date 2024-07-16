@@ -1,4 +1,8 @@
-﻿using Ecommerce.Domain.Common;
+﻿using AutoMapper;
+using Ecommerce.Application.Interfaces.UnitOfWorks;
+using Ecommerce.Domain.Common;
+using Ecommerce.Domain.Common.Entities;
+using MediatR;
 using Microsoft.EntityFrameworkCore.Query;
 using System;
 using System.Collections.Generic;

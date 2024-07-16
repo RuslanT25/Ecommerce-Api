@@ -1,6 +1,5 @@
-﻿using Ecommerce.Application.Features.Products.Queries;
+﻿using Ecommerce.Application.Features.Products.Queries.GetAll;
 using Ecommerce.Persistence;
-using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
 namespace Ecommerce.Api;
@@ -24,6 +23,8 @@ public class Program
             Assembly.GetExecutingAssembly(), // Şu an çalışmakta olan assembly
             typeof(GetAllProductsQueryHandler).Assembly // GetAllProductsQueryHandler türünün bulunduğu assembly
         ));
+
+        builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
         var app = builder.Build();
 
