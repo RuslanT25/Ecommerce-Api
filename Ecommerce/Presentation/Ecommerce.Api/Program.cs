@@ -1,4 +1,5 @@
-﻿using Ecommerce.Application.Features.Products.Queries.GetAll;
+﻿using Ecommerce.Application.Exceptions;
+using Ecommerce.Application.Features.Products.Queries.GetAll;
 using Ecommerce.Persistence;
 using System.Reflection;
 
@@ -34,6 +35,8 @@ public class Program
             app.UseSwagger();
             app.UseSwaggerUI();
         }
+
+        app.UseMiddleware<ExceptionMiddeware>();
 
         app.UseHttpsRedirection();
 

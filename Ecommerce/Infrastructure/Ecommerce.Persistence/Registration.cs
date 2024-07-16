@@ -1,4 +1,5 @@
-﻿using Ecommerce.Application.Interfaces.Repositories;
+﻿using Ecommerce.Application.Exceptions;
+using Ecommerce.Application.Interfaces.Repositories;
 using Ecommerce.Application.Interfaces.UnitOfWorks;
 using Ecommerce.Persistence.Context;
 using Ecommerce.Persistence.Repositories;
@@ -19,5 +20,6 @@ public static class Registration
         services.AddScoped(typeof(IReadRepository<>), typeof(ReadRepository<>));
         services.AddScoped(typeof(IWriteRepository<>), typeof(WriteRepository<>));
         services.AddScoped<IUnitOfWork, UnitOfWork>();
+        services.AddTransient<ExceptionMiddeware>();
     }
 }
