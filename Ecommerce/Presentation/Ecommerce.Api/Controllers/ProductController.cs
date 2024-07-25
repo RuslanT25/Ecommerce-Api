@@ -1,4 +1,4 @@
-﻿using Ecommerce.Application.Features.Products.Commands.Add;
+﻿using Ecommerce.Application.Features.Products.Commands.Create;
 using Ecommerce.Application.Features.Products.Commands.Delete;
 using Ecommerce.Application.Features.Products.Commands.Update;
 using Ecommerce.Application.Features.Products.Queries.GetAll;
@@ -26,7 +26,7 @@ public class ProductController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> AddProduct(AddProductCommandRequest request)
+    public async Task<IActionResult> AddProduct(CreateProductCommandRequest request)
     {
         var product = await _mediator.Send(request);
         return Ok(product);

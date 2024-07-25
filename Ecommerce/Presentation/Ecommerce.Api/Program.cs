@@ -1,6 +1,10 @@
-﻿using Ecommerce.Application.Exceptions;
+﻿using Ecommerce.Application.Behaviours;
+using Ecommerce.Application.Exceptions;
+using Ecommerce.Application.Features.Products.Commands.Create;
 using Ecommerce.Application.Features.Products.Queries.GetAll;
 using Ecommerce.Persistence;
+using FluentValidation;
+using MediatR;
 using System.Reflection;
 
 namespace Ecommerce.Api;
@@ -26,6 +30,12 @@ public class Program
         ));
 
         builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+        builder.Services.AddTransient<ExceptionMiddeware>();
+
+        builder.Services.AddValidatorsFromAssembly(typeof(CreateProductCommandValidation).Assembly);
+
+        builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(FluentValidationBehavior<,>));
 
         var app = builder.Build();
 

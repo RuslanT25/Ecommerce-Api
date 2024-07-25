@@ -5,7 +5,7 @@ using MediatR;
 
 namespace Ecommerce.Application.Features.Products.Commands.Update;
 
-public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommandRequest>
+public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommandRequest, Unit>
 {
     private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
@@ -16,7 +16,7 @@ public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommandR
         _mapper = mapper;
     }
 
-    public async Task Handle(UpdateProductCommandRequest request, CancellationToken cancellationToken)
+    public async Task<Unit> Handle(UpdateProductCommandRequest request, CancellationToken cancellationToken)
     {
         var product = await _unitOfWork.GetReadRepository<Product>().GetAsync(x => x.Id == request.Id && !x.IsDeleted)
             ?? throw new Exception("The product could not be found.");
@@ -43,5 +43,7 @@ public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommandR
 
         await _unitOfWork.GetWriteRepository<Product>().UpdateAsync(product);
         await _unitOfWork.SaveChangesAsync();
+
+        return Unit.Value;
     }
 }

@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Ecommerce.Application.Features.Products.Commands.Add;
 using Ecommerce.Application.Interfaces.UnitOfWorks;
 using Ecommerce.Domain.Common.Entities;
 using MediatR;

@@ -1,5 +1,4 @@
-﻿using Ecommerce.Application.Features.Products.Commands.Add;
-using MediatR;
+﻿using MediatR;
 
 namespace Ecommerce.Application.Features.Products.Queries.GetAll;
 
