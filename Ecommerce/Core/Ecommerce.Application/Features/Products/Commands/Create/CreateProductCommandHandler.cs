@@ -5,20 +5,20 @@ using Ecommerce.Domain.Common.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace Ecommerce.Application.Features.Products.Commands.Add;
+namespace Ecommerce.Application.Features.Products.Commands.Create;
 
-public class AddProductCommandHandler : IRequestHandler<AddProductCommandRequest, GetAllProductsQueryResponse>
+public class CreateProductCommandHandler : IRequestHandler<CreateProductCommandRequest, GetAllProductsQueryResponse>
 {
-    private IUnitOfWork _unitOfWork;
-    private IMapper _mapper;
+    private readonly IUnitOfWork _unitOfWork;
+    private readonly IMapper _mapper;
 
-    public AddProductCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
+    public CreateProductCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
     {
         _unitOfWork = unitOfWork;
         _mapper = mapper;
     }
 
-    public async Task<GetAllProductsQueryResponse> Handle(AddProductCommandRequest request, CancellationToken cancellationToken)
+    public async Task<GetAllProductsQueryResponse> Handle(CreateProductCommandRequest request, CancellationToken cancellationToken)
     {
         Product newProduct = new(request.Title, request.Description, request.Price, request.Discount, request.BrandId);
 

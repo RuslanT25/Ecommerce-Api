@@ -30,6 +30,6 @@ public class GetAllProductsQueryHandler : IRequestHandler<GetAllProductsQueryReq
 
         var productDtos = _mapper.Map<IList<GetAllProductsQueryResponse>>(products);
 
-        throw new Exception("Xeta bas verdi");
+        return productDtos;
     }
 }

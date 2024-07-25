@@ -1,9 +1,9 @@
 ﻿using Ecommerce.Application.Features.Products.Queries.GetAll;
 using MediatR;
 
-namespace Ecommerce.Application.Features.Products.Commands.Add;
+namespace Ecommerce.Application.Features.Products.Commands.Create;
 
-public class AddProductCommandRequest : IRequest<GetAllProductsQueryResponse>
+public class CreateProductCommandRequest : IRequest<GetAllProductsQueryResponse>
 {
     public string Title { get; set; }
     public string Description { get; set; }
