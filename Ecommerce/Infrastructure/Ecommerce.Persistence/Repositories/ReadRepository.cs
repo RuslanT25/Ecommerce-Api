@@ -63,4 +63,9 @@ public class ReadRepository<T> : IReadRepository<T> where T : class, IEntityBase
         if (!enableTracking) _dbSet.AsNoTracking();
         return _dbSet.Where(predicate);
     }
+
+    public async Task<bool> AnyAsync(Expression<Func<T, bool>> predicate)
+    {
+        return await _context.Set<T>().AnyAsync(predicate);
+    }
 }

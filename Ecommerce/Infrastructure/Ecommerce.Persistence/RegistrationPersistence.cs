@@ -9,7 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Ecommerce.Persistence;
 
-public static class Registration
+public static class RegistrationPersistence
 {
     public static void AddPersistance(this IServiceCollection services,IConfiguration configuration)
     {

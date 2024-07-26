@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Ecommerce.Application.Features.Products.Queries.GetAll;
+using Ecommerce.Application.Features.Products.Rules;
 using Ecommerce.Application.Interfaces.UnitOfWorks;
 using Ecommerce.Domain.Common.Entities;
 using MediatR;
@@ -11,21 +12,31 @@ public class CreateProductCommandHandler : IRequestHandler<CreateProductCommandR
 {
     private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
+    private readonly ProductRules _productRules;
 
-    public CreateProductCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
+    public CreateProductCommandHandler(IUnitOfWork unitOfWork, IMapper mapper, ProductRules productRules)
     {
         _unitOfWork = unitOfWork;
         _mapper = mapper;
+        _productRules = productRules;
     }
 
     public async Task<GetAllProductsQueryResponse> Handle(CreateProductCommandRequest request, CancellationToken cancellationToken)
     {
+        IList<Product> products = await _unitOfWork.GetReadRepository<Product>().GetAllAsync();
+
+        await _productRules.ProductTitleMustNotBeSame(products, request.Title);
+
+        await _productRules.ProductMustHaveBrand(request.BrandId);
+
+        await _productRules.ProductMustHaveCategory(request.CategoryIds);
+
         Product newProduct = new(request.Title, request.Description, request.Price, request.Discount, request.BrandId);
 
         await _unitOfWork.GetWriteRepository<Product>().AddAsync(newProduct);
         if (await _unitOfWork.SaveChangesAsync() > 0)
         {
-            foreach (var categoryId in request.CategoryIds)
+            foreach (var categoryId in request.CategoryIds) 
             {
                 await _unitOfWork.GetWriteRepository<ProductCategory>().AddAsync(new()
                 {

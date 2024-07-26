@@ -4,7 +4,7 @@ using SendGrid.Helpers.Errors.Model;
 
 namespace Ecommerce.Application.Exceptions;
 
-public class ExceptionMiddeware : IMiddleware
+public class ExceptionMiddleware : IMiddleware
 {
     public async Task InvokeAsync(HttpContext httpContext, RequestDelegate next)
     {
@@ -34,8 +34,7 @@ public class ExceptionMiddeware : IMiddleware
 
         List<string> errors =
         [
-            exception.Message,
-            exception.InnerException?.ToString()
+             $"Error message : {exception.Message}"
         ];
 
         return httpContext.Response.WriteAsync(new ExceptionModel
