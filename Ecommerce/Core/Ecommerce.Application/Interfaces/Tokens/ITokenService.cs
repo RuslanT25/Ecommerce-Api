@@ -6,7 +6,7 @@ namespace Ecommerce.Application.Interfaces.Tokens;
 
 public interface ITokenService
 {
-    Task<JwtSecurityToken> CreateToken(AppUser user, IList<string> roles);
+    Task<JwtSecurityToken> CreateToken(AppUser user);
     string GenerateRefreshToken();
     ClaimsPrincipal? GetPrincipalFromExpiredToken();
 }
