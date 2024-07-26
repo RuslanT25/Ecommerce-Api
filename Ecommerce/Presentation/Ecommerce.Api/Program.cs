@@ -1,6 +1,7 @@
 ﻿using Ecommerce.Application.Exceptions;
 using Ecommerce.Persistence;
 using Ecommerce.Application;
+using Ecommerce.Infrastructure;
 
 namespace Ecommerce.Api;
 
@@ -15,6 +16,7 @@ public class Program
         builder.Services.AddSwaggerGen();
 
         builder.Services.AddPersistance(builder.Configuration);
+        builder.Services.AddInfrastructure(builder.Configuration);
         builder.Services.AddApplication();
 
         var app = builder.Build();
