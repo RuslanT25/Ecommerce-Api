@@ -12,4 +12,11 @@ public class AuthRules : BaseRules
 
         return Task.CompletedTask;
     }
+
+    public Task EmailAndPasswordMustBeValid(AppUser? user,bool checkPassword)
+    {
+        if (user == null || !checkPassword) throw new EmailAndPasswordMustBeValidException();
+
+        return Task.CompletedTask;
+    }
 }
