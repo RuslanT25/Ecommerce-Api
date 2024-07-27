@@ -1,23 +1,22 @@
 ﻿using AutoMapper;
+using Ecommerce.Application.Bases;
 using Ecommerce.Application.Features.Products.Queries.GetAll;
 using Ecommerce.Application.Features.Products.Rules;
 using Ecommerce.Application.Interfaces.UnitOfWorks;
 using Ecommerce.Domain.Common.Entities;
 using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 
 namespace Ecommerce.Application.Features.Products.Commands.Create;
 
-public class CreateProductCommandHandler : IRequestHandler<CreateProductCommandRequest, GetAllProductsQueryResponse>
+public class CreateProductCommandHandler : BaseHandler, IRequestHandler<CreateProductCommandRequest, GetAllProductsQueryResponse>
 {
-    private readonly IUnitOfWork _unitOfWork;
-    private readonly IMapper _mapper;
     private readonly ProductRules _productRules;
 
-    public CreateProductCommandHandler(IUnitOfWork unitOfWork, IMapper mapper, ProductRules productRules)
+    public CreateProductCommandHandler(ProductRules productRules, IMapper _mapper, IUnitOfWork _unitOfWork, IHttpContextAccessor httpContextAccessor)
+        : base(_mapper, _unitOfWork, httpContextAccessor)
     {
-        _unitOfWork = unitOfWork;
-        _mapper = mapper;
         _productRules = productRules;
     }
 

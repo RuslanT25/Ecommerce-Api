@@ -21,4 +21,9 @@
     <ProjectReference Include="..\Ecommerce.Domain\Ecommerce.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Auths\Exceptions\" />
+    <Folder Include="Features\Auths\Rules\" />
+  </ItemGroup>
+
 </Project>
