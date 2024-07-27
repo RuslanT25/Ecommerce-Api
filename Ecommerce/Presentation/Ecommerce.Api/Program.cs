@@ -15,6 +15,9 @@ public class Program
         builder.Services.AddControllers();
         builder.Services.AddEndpointsApiExplorer();
 
+        builder.Services.AddHttpContextAccessor();
+        builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
         builder.Services.AddPersistance(builder.Configuration);
         builder.Services.AddInfrastructure(builder.Configuration);
         builder.Services.AddApplication();

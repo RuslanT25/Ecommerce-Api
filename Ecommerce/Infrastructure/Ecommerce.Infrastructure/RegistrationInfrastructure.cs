@@ -26,10 +26,10 @@ public static class RegistrationInfrastructure
                 ValidateIssuer = true,
                 ValidateAudience = true,
                 ValidateIssuerSigningKey = true,
-                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration[tokenOption!.SecretKey]!)),
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(tokenOption!.SecretKey!)),
                 ValidateLifetime = false,
-                ValidIssuer = configuration[tokenOption.Issuer],
-                ValidAudience = configuration[tokenOption.Audience],
+                ValidIssuer = tokenOption.Issuer,
+                ValidAudience = tokenOption.Audience,
                 ClockSkew = TimeSpan.Zero
             };
         });
