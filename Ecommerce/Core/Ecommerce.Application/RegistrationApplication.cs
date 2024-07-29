@@ -26,7 +26,7 @@ public static class RegistrationApplication
 
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(FluentValidationBehevior<,>));
 
-       // services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RedisCacheBehevior<,>));
+        services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RedisCacheBehevior<,>));
     }
 
     // BaseRules-den inheritance alan RuleClass-lari AddTransient-le elave edir.

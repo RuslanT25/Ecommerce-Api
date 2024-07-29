@@ -1,4 +1,7 @@
-﻿using Ecommerce.Infrastructure.Services.Tokens;
+﻿using Ecommerce.Application.Interfaces.RedisCache;
+using Ecommerce.Application.Interfaces.Tokens;
+using Ecommerce.Infrastructure.Services.RedisCache;
+using Ecommerce.Infrastructure.Services.Tokens;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,6 +16,8 @@ public static class RegistrationInfrastructure
     {
         services.Configure<TokenOption>(configuration.GetSection(nameof(TokenOption)));
         var tokenOption = configuration.GetSection(nameof(TokenOption)).Get<TokenOption>();
+
+        services.AddTransient<ITokenService, TokenService>();
 
         services.AddAuthentication(opt =>   
         {
@@ -29,11 +34,21 @@ public static class RegistrationInfrastructure
                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(tokenOption!.SecretKey!)),
                 ValidateLifetime = false,
                 ValidIssuer = tokenOption.Issuer,
-                ValidAudience = tokenOption.Audience,
+                ValidAudience = tokenOption.Audience,   
                 ClockSkew = TimeSpan.Zero
             };
         });
 
 
+        services.Configure<RedisOptions>(configuration.GetSection(nameof(RedisOptions)));
+        services.AddTransient<IRedisCacheService, RedisCacheService>();
+
+        var redisOptions = configuration.GetSection(nameof(RedisOptions)).Get<RedisOptions>();
+
+        services.AddStackExchangeRedisCache(opt =>
+        {
+            opt.Configuration = configuration[redisOptions!.ConnectionString];
+            opt.InstanceName = configuration[redisOptions!.InstanceName];
+        });
     }
 }

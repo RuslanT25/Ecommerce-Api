@@ -4,11 +4,11 @@ using SendGrid;
 
 namespace Ecommerce.Application.Behaviours;
 
-public class RedisCacheBeheviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
+public class RedisCacheBehevior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
 {
     private readonly IRedisCacheService _redisCacheService;
 
-    public RedisCacheBeheviour(IRedisCacheService redisCacheService)
+    public RedisCacheBehevior(IRedisCacheService redisCacheService)
     {
         _redisCacheService = redisCacheService;
     }
