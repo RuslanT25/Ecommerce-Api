@@ -1,4 +1,4 @@
-﻿using Ecommerce.Application.DTOs;
+﻿using Ecommerce.Application.Features.Products.DTOs;
 
 namespace Ecommerce.Application.Features.Products.Queries.GetAll;
 

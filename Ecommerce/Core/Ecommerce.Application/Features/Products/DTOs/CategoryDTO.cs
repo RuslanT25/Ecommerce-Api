@@ -1,4 +1,4 @@
-﻿namespace Ecommerce.Application.DTOs;
+﻿namespace Ecommerce.Application.Features.Products.DTOs;
 
 public class CategoryDTO
 {

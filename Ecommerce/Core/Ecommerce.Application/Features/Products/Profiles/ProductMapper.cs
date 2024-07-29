@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using Ecommerce.Application.DTOs;
 using Ecommerce.Application.Features.Products.Commands.Update;
+using Ecommerce.Application.Features.Products.DTOs;
 using Ecommerce.Application.Features.Products.Queries.GetAll;
 using Ecommerce.Domain.Common.Entities;
 

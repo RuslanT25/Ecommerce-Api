@@ -5,7 +5,7 @@ using StackExchange.Redis;
 
 namespace Ecommerce.Infrastructure.Services.RedisCache;
 
-public class RedisCacheService : IRedisCatcheService
+public class RedisCacheService : IRedisCacheService
 {
     private readonly ConnectionMultiplexer _redisConnection;
     private readonly IDatabase _database;
@@ -17,7 +17,7 @@ public class RedisCacheService : IRedisCatcheService
         _redisConnection = ConnectionMultiplexer.Connect(opt);
         _database = _redisConnection.GetDatabase();
     }
-    public async Task<T> GeTAsync<T>(string key)
+    public async Task<T> GetAsync<T>(string key)
     {
         RedisValue value = await _database.StringGetAsync(key);
         if (value.HasValue)

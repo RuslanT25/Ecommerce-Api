@@ -1,7 +1,7 @@
 ﻿namespace Ecommerce.Application.Interfaces.RedisCache;
 
-public interface IRedisCatcheService
+public interface IRedisCacheService
 {
-    Task<T> GeTAsync<T>(string key);
+    Task<T> GetAsync<T>(string key);
     Task SetAsync<T>(string key, T value, DateTime? expirationDate = null);
 }

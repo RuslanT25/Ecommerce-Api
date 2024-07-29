@@ -1,6 +1,6 @@
 ﻿using System.Security.Cryptography.X509Certificates;
 
-namespace Ecommerce.Application.DTOs;
+namespace Ecommerce.Application.Features.Products.DTOs;
 
 public class BrandDTO
 {
