@@ -33,14 +33,12 @@ public class LoginCommandHandler : BaseHandler, IRequestHandler<LoginCommandRequ
 
         await _authRules.EmailAndPasswordMustBeValid(user, checkPassword);
 
-        IList<string> roles = await _userManager.GetRolesAsync(user!);
-
-        var token = await _tokenService.CreateToken(user);
+        var token = await _tokenService.CreateToken(user!);
         string refreshToken = _tokenService.GenerateRefreshToken();
 
         _ = int.TryParse(_configuration["TokenOption:RefreshTokenExpiration"], out int refreshTokenValidityInDays);
 
-        user.RefreshToken = refreshToken;
+        user!.RefreshToken = refreshToken;
         user.RefreshTokenExpiryTime = DateTime.Now.AddDays(refreshTokenValidityInDays);
 
         await _userManager.UpdateAsync(user);
