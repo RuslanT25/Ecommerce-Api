@@ -31,7 +31,7 @@ public class LoginCommandHandler : BaseHandler, IRequestHandler<LoginCommandRequ
         var user = await _userManager.FindByEmailAsync(request.Email);
         bool checkPassword = await _userManager.CheckPasswordAsync(user!, request.Password);
 
-        await _authRules.EmailAndPasswordMustBeValid(user, checkPassword);
+        await AuthRules.EmailAndPasswordMustBeValid(user, checkPassword);
 
         var token = await _tokenService.CreateToken(user!);
         string refreshToken = _tokenService.GenerateRefreshToken();
